@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:NetLibrary.Extensions.HttpClientExtension">
+            <summary> 
+            HttpClient の拡張メソッドを提供します。 
+            </summary> 
+        </member>
+        <member name="M:NetLibrary.Extensions.HttpClientExtension.PostAsync(System.Net.Http.HttpClient,System.Uri,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            指定された URI に POST 要求を非同期操作として送信します。
+            </summary>
+            <param name="this">HttpClient</param>
+            <param name="uri">URI</param>
+            <param name="nameValueCollection">名前と値のコレクション</param>
+            <returns>HTTP 応答メッセージを返します。</returns>
+        </member>
+        <member name="T:NetLibrary.Extensions.HttpContentExtension">
+            <summary> 
+            HttpContent の拡張メソッドを提供します。 
+            </summary> 
+        </member>
+        <member name="M:NetLibrary.Extensions.HttpContentExtension.ReadAsJsonAsync``1(System.Net.Http.HttpContent,System.Text.Encoding)">
+            <summary> 
+            HttpResponseMessage の Content から JSON をオブジェクトにデシリアライズするメソッド 
+            </summary> 
+            <typeparam name="T">JSON をデシリアライズする型</typeparam>
+            <param name="this">HttpContent</param>
+            <param name="enc">文字エンコーディング</param>
+            <returns>HttpContent から読み込んだ JSON をデシリアライズした結果のオブジェクト</returns> 
+        </member>
+        <member name="M:NetLibrary.Extensions.HttpContentExtension.ReadAsStringAsync(System.Net.Http.HttpContent,System.Text.Encoding)">
+            <summary>
+            非同期で文字列に HTTP コンテンツをシリアル化し、
+            指定した文字エンコーディングの文字列として読み込みます。
+            </summary>
+            <param name="this"></param>
+            <param name="enc">文字エンコーディング</param>
+            <returns>読み込んだ文字列を返します。</returns>
+        </member>
+        <member name="M:NetLibrary.Extensions.HttpContentExtension.ReadStreamAsync(System.Net.Http.HttpContent,System.Action{System.IO.Stream})">
+            <summary>
+            Stream を読み取ります。[非同期]
+            </summary>
+            <param name="this">HttpContent</param>
+            <param name="readStream">Stream を加工するメソッド</param>
+        </member>
+        <member name="T:NetLibrary.Extensions.UriExtension">
+            <summary>
+            Uri クラスを拡張するメソッドを提供します。
+            </summary>
+        </member>
+        <member name="M:NetLibrary.Extensions.UriExtension.GetObjectAsync(System.Uri,System.Action{System.Net.Http.HttpClient})">
+            <summary>
+            指定 URI に GET 要求を送信し、非同期操作で応答本体を JObject として返します。
+            </summary>
+            <param name="this">Uri</param>
+            <param name="setting">HttpClient の設定を行うメソッド</param>
+            <returns>応答データの JObject を返します。</returns>
+        </member>
+        <member name="M:NetLibrary.Extensions.UriExtension.GetStringAsync(System.Uri,System.Action{System.Net.Http.HttpClient})">
+            <summary>
+            指定 URI に GET 要求を送信し、非同期操作で応答本体を文字列として返します。
+            </summary>
+            <param name="this">Uri</param>
+            <param name="setting">HttpClient の設定を行うメソッド</param>
+            <returns>応答データの文字列を返します。</returns>
+        </member>
+        <member name="M:NetLibrary.Extensions.UriExtension.GetJsonAsync``1(System.Uri,System.Text.Encoding,System.Action{System.Net.Http.HttpClient})">
+            <summary>
+            非同期操作で、指定 URI に GET 要求を送信し、
+            応答メッセージを JSON オブジェクトにデシリアライズします。
+            <para>HTTP 応答が成功しなかった場合、例外がスローされます。</para>
+            </summary>
+            <typeparam name="TResult">戻り値の型</typeparam>
+            <param name="this">Uri</param>
+            <param name="enc">文字エンコーディング</param>
+            <param name="setting">HttpClient の設定を行うメソッド</param>
+            <returns>デシリアライズ JSON オブジェクトを返します。</returns>
+        </member>
+        <member name="M:NetLibrary.Extensions.UriExtension.GetJsonAsync``1(System.Uri,System.Action{System.Net.Http.HttpClient})">
+            <summary>
+            非同期操作で、指定 URI に GET 要求を送信し、
+            応答メッセージを JSON オブジェクトにデシリアライズします。
+            </summary>
+            <typeparam name="TResult">戻り値の型</typeparam>
+            <param name="this">Uri</param>
+            <param name="setting">HttpClient の設定を行うメソッド</param>
+            <returns>デシリアライズ JSON オブジェクトを返します。</returns>
+        </member>
+        <member name="M:NetLibrary.Extensions.UriExtension.ReadStreamAsync(System.Uri,System.Action{System.IO.Stream},System.Action{System.Net.Http.HttpClient})">
+            <summary>
+            指定 URI に GET 要求を送信し、非同期操作で応答をストリームとして操作します。
+            <para>HTTP 応答が成功しなかった場合、例外がスローされます。</para>
+            </summary>
+            <param name="this">Uri</param>
+            <param name="readStream">Stream を加工するメソッド</param>
+            <param name="setting">HttpClient の設定を行うメソッド</param>
+        </member>
+        <member name="M:NetLibrary.Extensions.UriExtension.GetStreamAsync(System.Uri,System.Action{System.Net.Http.HttpClient})">
+            <summary>
+            指定 URI に GET 要求を送信し、非同期操作で応答本体をストリームとして取得します。
+            </summary>
+            <param name="this">Uri</param>
+            <param name="setting">HttpClient の設定を行うメソッド</param>
+            <returns>応答データのストリームを返します。</returns>
+        </member>
+    </members>
+</doc>
