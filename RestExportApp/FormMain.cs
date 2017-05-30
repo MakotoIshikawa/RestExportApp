@@ -7,6 +7,7 @@ using ExtensionsLibrary.Extensions;
 using ObjectAnalysisProject.Extensions;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
+using RestExportApp.Extensions;
 using RestExportApp.Properties;
 using WindowsFormsLibrary.Extensions;
 using static RestExportApp.RestApi.YahooApi;
@@ -63,22 +64,46 @@ namespace RestExportApp {
 		/// GET 処理
 		/// </summary>
 		protected virtual async Task GetAsync() {
-			var rdo = this.group01.Controls.OfType<RadioButton>().SingleOrDefault(r => r.Checked);
+			var rdo = this.group01.SelectedRadioButton();
 			var st = rdo?.Text;
 			this.grid01.Tag = st;
 
 			switch (st) {
 			case "降水量":
 				this.ShowMessageBox($"降水量を調べます。");
-				this.grid01.DataSource = await GetPrecipitationAsync(this.AppId, 139.732293, 35.663613);
+				var weathers = await GetWeathersAsync(this.AppId, 139.732293, 35.663613);
+				using (var db = new YahooApiDbDataContext()) {
+					db.Weathers.DeleteAllOnSubmit(db.Weathers);
+					db.Weathers.InsertAllOnSubmit(weathers);
+
+					db.SubmitChanges();
+
+					this.grid01.DataSource = db.Weathers;
+				}
 				break;
 			case "商品検索":
 				this.ShowMessageBox($"商品検索を調べます。");
-				this.grid01.DataSource = await GetItemSearchAsync(this.AppId, 635, "-sold");
+				var products = await GetProductsAsync(this.AppId, 635, "-sold");
+				using (var db = new YahooApiDbDataContext()) {
+					db.Products.DeleteAllOnSubmit(db.Products);
+					db.Products.InsertAllOnSubmit(products);
+
+					db.SubmitChanges();
+
+					this.grid01.DataSource = db.Products;
+				}
 				break;
 			case "カテゴリー":
 				this.ShowMessageBox($"カテゴリーを調べます。");
-				this.grid01.DataSource = await GetCategorySearchAsync(this.AppId, 1);
+				var categories = await GetCategoriesAsync(this.AppId, 1);
+				using (var db = new YahooApiDbDataContext()) {
+					db.Categories.DeleteAllOnSubmit(db.Categories);
+					db.Categories.InsertAllOnSubmit(categories);
+
+					db.SubmitChanges();
+
+					this.grid01.DataSource = db.Categories;
+				}
 				break;
 			}
 		}

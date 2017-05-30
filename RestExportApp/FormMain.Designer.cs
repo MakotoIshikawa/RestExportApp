@@ -62,6 +62,7 @@
 			// 
 			// btnExport
 			// 
+			this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnExport.Location = new System.Drawing.Point(329, 11);
 			this.btnExport.Name = "btnExport";
 			this.btnExport.Size = new System.Drawing.Size(75, 23);

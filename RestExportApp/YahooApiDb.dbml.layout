@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="YahooApiDb">
+  <DataContextMoniker Name="/YahooApiDbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="60101bbc-9bf7-4628-b4b5-c911a1c07202" absoluteBounds="0.625, 2.125, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/YahooApiDbDataContext/Categories" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce40fded-1686-4d14-b977-48952af9ee9e" absoluteBounds="0.64000000000000012, 2.585, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb69cb63-52a2-45fc-9a0e-438f99673808" absoluteBounds="0.625, 3.875, 2, 1.3525109863281255">
+      <DataClassMoniker Name="/YahooApiDbDataContext/Products" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd3b04f8-a012-4f0e-90bb-a459083c1f1d" absoluteBounds="0.64, 4.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56bf0323-aa53-4041-863e-72a86c2005d4" absoluteBounds="0.625, 0.5, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/YahooApiDbDataContext/Weathers" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8eadce5b-9680-45a5-a7c2-398bb3094da5" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

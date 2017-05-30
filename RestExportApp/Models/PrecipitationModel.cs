@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestExportApp.Model {
+namespace RestExportApp.Models {
 	#region PrecipitationModel
 
 	public class PrecipitationModel {
